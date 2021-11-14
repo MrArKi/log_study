@@ -2,10 +2,8 @@ package com.zp;
 
 import org.junit.Test;
 
-import java.util.logging.ConsoleHandler;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.logging.SimpleFormatter;
+import java.io.IOException;
+import java.util.logging.*;
 
 /**
  * TODO
@@ -73,7 +71,23 @@ public class JULTest {
     public void Test03() {
 
         setLogLevel(Level.ALL);
-        
+
+        logPrint();
+    }
+
+    @Test
+    public void Test04() throws IOException {
+        // 输出文件到磁盘
+        logger.setUseParentHandlers(false);
+        //文件日志处理器
+        FileHandler handler = new FileHandler("myLogTest.log");
+        SimpleFormatter formatter = new SimpleFormatter();
+        handler.setFormatter(formatter);
+        logger.addHandler(handler);
+
+        logger.setLevel(Level.ALL);
+        handler.setLevel(Level.ALL);
+
         logPrint();
     }
 

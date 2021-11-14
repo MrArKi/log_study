@@ -1,0 +1,14 @@
+十一月 14, 2021 9:54:38 下午 com.zp.JULTest logPrint
+严重: severe1000
+十一月 14, 2021 9:54:38 下午 com.zp.JULTest logPrint
+警告: warning900
+十一月 14, 2021 9:54:38 下午 com.zp.JULTest logPrint
+信息: info800
+十一月 14, 2021 9:54:38 下午 com.zp.JULTest logPrint
+配置: config700
+十一月 14, 2021 9:54:38 下午 com.zp.JULTest logPrint
+详细: fine500
+十一月 14, 2021 9:54:38 下午 com.zp.JULTest logPrint
+较详细: finer400
+十一月 14, 2021 9:54:38 下午 com.zp.JULTest logPrint
+非常详细: finest300
