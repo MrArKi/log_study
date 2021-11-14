@@ -1,2 +1,3 @@
 # Project exclude paths
-/JUL/target/
+/**/target/
+/.idea
