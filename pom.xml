@@ -10,6 +10,11 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>JUL</module>
+        <module>log-stack-01</module>
+        <module>log-stack-02</module>
+        <module>log-stack-03</module>
+        <module>log-stack-04</module>
+        <module>log-stack-springboot</module>
     </modules>
 
     <properties>
