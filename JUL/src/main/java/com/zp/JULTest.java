@@ -91,6 +91,30 @@ public class JULTest {
         logPrint();
     }
 
+    /**
+     * 混合输出
+     *
+     * @throws IOException
+     */
+    @Test
+    public void Test05() throws IOException {
+        logger.setUseParentHandlers(false);
+        SimpleFormatter formatter = new SimpleFormatter();
+        FileHandler fileHandler = new FileHandler("myLogTest1.log");
+        ConsoleHandler consoleHandler = new ConsoleHandler();
+
+        fileHandler.setFormatter(formatter);
+        fileHandler.setLevel(Level.ALL);
+        consoleHandler.setFormatter(formatter);
+        consoleHandler.setLevel(Level.ALL);
+
+        logger.setLevel(Level.ALL);
+
+        logger.addHandler(consoleHandler);
+        logger.addHandler(fileHandler);
+        logPrint();
+    }
+
     private void logPrint() {
         logger.severe("severe1000");
         logger.warning("warning900");
