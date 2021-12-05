@@ -53,6 +53,18 @@ public class Log4jTest01 {
         logger.trace("trace信息");
     }
 
+    @Test
+    public void test04() {
+        LogLog.setInternalDebugging(true);
+        Logger logger = Logger.getLogger(Log4jTest01.class);
+        logger.fatal("fatal信息");
+        logger.error("error信息");
+        logger.warn("warn信息");
+        logger.info("info信息");
+        logger.debug("debug信息");
+        logger.trace("trace信息");
+    }
+
 //    private void printAll() {
 //        logger.fatal("fatal信息");
 //        logger.error("error信息");
