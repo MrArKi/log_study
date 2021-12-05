@@ -2,17 +2,16 @@ package com.zp;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
+import org.apache.log4j.helpers.LogLog;
 import org.junit.Test;
 
 /**
- *
- *
  * @author pengz
  * @since 2021/12/1
  */
 public class Log4jTest01 {
 
-    private Logger logger = Logger.getLogger(this.getClass());
+//    private Logger logger = Logger.getLogger(this.getClass());
 
     /**
      * 日志级别说明：
@@ -25,14 +24,13 @@ public class Log4jTest01 {
      * FATAL 表示严重错误，他是一旦发生系统就不可能继续运行的严重错误
      * OFF 最高级别，用户关闭所有日志记录
      * 其中DEBUG是默认级别
-     *
      */
     @Test
     public void test01() {
         // 初始化配置
         BasicConfigurator.configure();
 
-        printAll();
+//        printAll();
     }
 
     /**
@@ -40,10 +38,13 @@ public class Log4jTest01 {
      */
     @Test
     public void test02() {
-
+//        printAll();
     }
 
-    private void printAll() {
+    @Test
+    public void test03() {
+        LogLog.setInternalDebugging(true);
+        Logger logger = Logger.getLogger(Log4jTest01.class);
         logger.fatal("fatal信息");
         logger.error("error信息");
         logger.warn("warn信息");
@@ -51,4 +52,13 @@ public class Log4jTest01 {
         logger.debug("debug信息");
         logger.trace("trace信息");
     }
+
+//    private void printAll() {
+//        logger.fatal("fatal信息");
+//        logger.error("error信息");
+//        logger.warn("warn信息");
+//        logger.info("info信息");
+//        logger.debug("debug信息");
+//        logger.trace("trace信息");
+//    }
 }
