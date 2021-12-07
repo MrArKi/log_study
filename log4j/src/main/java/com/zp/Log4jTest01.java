@@ -77,6 +77,29 @@ public class Log4jTest01 {
         logger.trace("trace信息");
     }
 
+    @Test
+    public void Test06() {
+        // 由于当前logger的用于范围是Log4jTest01（com.zp.Log4jTest01）
+        // 所以无法作用到org.apache
+        Logger logger = Logger.getLogger(Log4jTest01.class);
+        logger.fatal("fatal信息");
+        logger.error("error信息");
+        logger.warn("warn信息");
+        logger.info("info信息");
+        logger.debug("debug信息");
+        logger.trace("trace信息");
+
+        // org.apache.log4j.Logger
+        // 可以作用到apache
+        Logger logger1 = Logger.getLogger(Logger.class);
+        logger1.fatal("fatal信息 --- ");
+        logger1.error("error信息 --- ");
+        logger1.warn("warn信息 --- ");
+        logger1.info("info信息 --- ");
+        logger1.debug("debug信息 --- ");
+        logger1.trace("trace信息 --- ");
+    }
+
 //    private void printAll() {
 //        logger.fatal("fatal信息");
 //        logger.error("error信息");
