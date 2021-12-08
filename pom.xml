@@ -16,6 +16,7 @@
         <module>log-stack-04</module>
         <module>log-stack-springboot</module>
         <module>log4j</module>
+        <module>JCL</module>
     </modules>
 
     <properties>
