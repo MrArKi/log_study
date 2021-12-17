@@ -12,7 +12,17 @@
     %n 换行
     -->
     <property name="pattern" value="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} %c %M %L %thread %m %n"/>
-
+<!--    配置文件输出路径-->
+    <property name="logDir" value="D://logTest"/>
+<!--    文件appender-->
+    <appender name="fileAppender" class="ch.qos.logback.core.FileAppender">
+<!--        引入文件位置-->
+        <file>${logDir}/logback.log</file>
+<!--        设置输出格式-->
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${pattern}</pattern>
+        </encoder>
+    </appender>
     <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
 <!--        表示对于日志输出目标的配置 默认System.out 黑色字体输出日志-->
         <target>
@@ -25,6 +35,7 @@
     </appender>
 
     <root level="ALL">
-        <appender-ref ref="consoleAppender"/>
+<!--        <appender-ref ref="fileAppender"/>-->
+        <appender-ref ref="fileAppender"/>
     </root>
 </configuration>
