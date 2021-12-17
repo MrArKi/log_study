@@ -74,4 +74,8 @@
 <!--        <appender-ref ref="fileAppender"/>-->
         <appender-ref ref="asyncAppender"/>
     </root>
+<!--    additivity="false" 表示不继承rootlogger-->
+    <logger name="com.zp" level="error" additivity="false">
+        <appender-ref ref="consoleAppender"/>
+    </logger>
 </configuration>
