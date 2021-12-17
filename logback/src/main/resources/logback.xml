@@ -33,9 +33,24 @@
             <pattern>${pattern}</pattern>
         </encoder>
     </appender>
+<!--    配置可拆分归档的文件-->
+    <appender name="rollingAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${pattern}</pattern>
+        </encoder>
+<!--        引入文件位置-->
+        <file>${logDir}/roll_logback.log</file>
+<!--        指定拆分规则-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+<!--            按照时间和压缩格式声明文件名-->
+            <fileNamePattern>${logDir}/roll.%d{yyyy-MM-dd}.log%i.gz</fileNamePattern>
+<!--            按照文件大小拆分-->
+            <maxFileSize>1kb</maxFileSize>
+        </rollingPolicy>
+    </appender>
 
     <root level="ALL">
 <!--        <appender-ref ref="fileAppender"/>-->
-        <appender-ref ref="fileAppender"/>
+        <appender-ref ref="rollingAppender"/>
     </root>
 </configuration>

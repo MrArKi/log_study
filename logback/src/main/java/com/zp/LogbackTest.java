@@ -28,7 +28,16 @@ public class LogbackTest {
 
     @Test
     public void test02() {
+        Logger logger = LoggerFactory.getLogger(this.getClass());
         // logback配置文件的使用
+        // 测试拆分归档
+        for (int i = 0; i < 1000; i++) {
+            logger.error("error信息");
+            logger.warn("warn信息");
+            logger.info("info信息");
+            logger.debug("debug信息");
+            logger.trace("trace信息");
+        }
 
     }
 }
