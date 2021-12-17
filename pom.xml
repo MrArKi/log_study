@@ -18,6 +18,7 @@
         <module>log4j</module>
         <module>JCL</module>
         <module>slf4j</module>
+        <module>logback</module>
     </modules>
 
     <properties>
