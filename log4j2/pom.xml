@@ -31,6 +31,12 @@
             <version>${log4j2.version}</version>
         </dependency>
 
+<!--        log4j异步支持-->
+        <dependency>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+            <version>3.4.4</version>
+        </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>

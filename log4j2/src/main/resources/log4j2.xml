@@ -36,8 +36,13 @@
         </RollingFile>
     </Appenders>
     <Loggers>
+<!--        includeLocation="false" 去除记录行号（影响性能）-->
+        <AsyncLogger name="com.zp" level="trace" includeLocation="false" additivity="false">
+<!--            控制台打印-->
+            <AppenderRef ref="consoleAppender"/>
+        </AsyncLogger>
         <Root level="trace">
-            <AppenderRef ref="rollingFile">
+            <AppenderRef ref="consoleAppender">
 
             </AppenderRef>
         </Root>

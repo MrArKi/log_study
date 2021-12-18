@@ -38,5 +38,7 @@ public class Test01 {
             logger.debug("debug信息");
             logger.trace("trace信息");
         }
+
+        System.out.println("111111111111111111");
     }
 }
