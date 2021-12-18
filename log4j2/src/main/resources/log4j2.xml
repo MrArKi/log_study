@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--        status="debug"表示日志本身的debug级别-->
-<Configuration xmlns="http://logging.apache.org/log4j/2.0/config" status="debug">
+<Configuration xmlns="http://logging.apache.org/log4j/2.0/config">
     <Appenders>
         <Console name="consoleAppender" target="SYSTEM_ERR">
         </Console>
