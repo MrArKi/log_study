@@ -31,10 +31,12 @@ public class Test01 {
     public void test02() {
         Logger logger = LoggerFactory.getLogger(this.getClass());
 
-        logger.error("error信息");
-        logger.warn("warn信息");
-        logger.info("info信息");
-        logger.debug("debug信息");
-        logger.trace("trace信息");
+        for (int i=0;i<2000;i++) {
+            logger.error("error信息");
+            logger.warn("warn信息");
+            logger.info("info信息");
+            logger.debug("debug信息");
+            logger.trace("trace信息");
+        }
     }
 }

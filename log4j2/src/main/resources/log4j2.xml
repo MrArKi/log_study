@@ -1,13 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--        status="debug"表示日志本身的debug级别-->
-<Configuration xmlns="http://logging.apache.org/log4j/2.0/config">
+<Configuration>
+    <Properties>
+        <Property name="logDir">D://test</Property>
+        <Property name="pattern">[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} %c %M %L %thread %m %n</Property>
+    </Properties>
     <Appenders>
+        <!--    配置控制台appender-->
         <Console name="consoleAppender" target="SYSTEM_ERR">
         </Console>
+        <!--    配置文件appender-->
+        <File name="fileAppender" fileName="${logDir}//log4j21.log">
+            <PatternLayout pattern="${pattern}"/>
+        </File>
+        <!--
+        fileName：日志文件名
+        filePattern：日志文件拆分后文件的命名规则
+        $${date:yyyy-MM-dd}：根据日期当天，创建一个文件夹
+        rollog-%d{yyyy-MM-dd-HH-mm}-%i.log：文件名%i表示文件序号
+        -->
+        <RollingFile name="rollingFile" fileName="${logDir}/rollog.log"
+                     filePattern="${logDir}/$${date:yyyy-MM-dd}/rollog-%d{yyyy-MM-dd-HH-mm}-%i.log">
+            <!--            日志消息格式-->
+            <PatternLayout pattern="${pattern}"/>
+            <Policies>
+                <!-- 在系统启动时，触发拆分规则，产生一个日志文件-->
+                <OnStartupTriggeringPolicy/>
+                <!--按照文件大小进行拆分-->
+                <SizeBasedTriggeringPolicy size="10kb"/>
+                <!--按照时间节点进行拆分，拆分规则就是filePattern-->
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+            <!--同一目录下文件的个数限制 如果超出了设置的数据，则根据时间进行覆盖，新的覆盖最旧的-->
+            <DefaultRolloverStrategy max="30"/>
+        </RollingFile>
     </Appenders>
     <Loggers>
         <Root level="trace">
-            <AppenderRef ref="consoleAppender">
+            <AppenderRef ref="rollingFile">
 
             </AppenderRef>
         </Root>
