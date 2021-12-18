@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--        status="debug"表示日志本身的debug级别-->
+<Configuration xmlns="http://logging.apache.org/log4j/2.0/config" status="debug">
+    <Appenders>
+        <Console name="consoleAppender" target="SYSTEM_ERR">
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="trace">
+            <AppenderRef ref="consoleAppender">
+
+            </AppenderRef>
+        </Root>
+    </Loggers>
+</Configuration>
